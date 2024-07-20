@@ -82,7 +82,7 @@ if filter_by_brand:
 # Priority selection
 st.write('### Select your priorities (Drag to reorder)')
 priorities = st.multiselect('Priorities', ['Mileage', 'Year', 'KM Driven', 'Fuel', 'City'], ['Mileage', 'Year', 'KM Driven', 'Fuel', 'City'])
-priorities_order = st.experimental_data_editor(priorities)
+# priorities_order = st.experimental_data_editor(priorities)
 
 # Helper function to convert range to mid value
 def get_mid_value(range_str):
@@ -142,7 +142,7 @@ def suggest_car(year, km_driven_range, fuel, seller_type, transmission, owner, m
 
 # Button to trigger suggestion
 if st.button('Get Car Suggestions'):
-    suggestions = suggest_car(year, km_driven_range, fuel, seller_type, transmission, owner, mileage_range, seats, city, priorities_order, brand if filter_by_brand else None)
+    suggestions = suggest_car(year, km_driven_range, fuel, seller_type, transmission, owner, mileage_range, seats, city, priorities, brand if filter_by_brand else None)
     
     # Replace numeric codes with categorical values
     suggestions['transmission'] = suggestions['transmission'].map(transmission_map)
