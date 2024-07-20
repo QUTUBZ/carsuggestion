@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Car Match</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#rental">Rental</a>
+        <a href="http://localhost:8501" target="_blank">Suggestion</a>
+        <a href="http://localhost:8502" target="_blank">Prediction</a>
+    </div>
+
+    <div id="home" class="content">
+        <h1>Welcome to Smart Car Match</h1>
+        <p>This is the home page. Here you can find information about our service.</p>
+    </div>
+
+    <div id="rental" class="content" style="display:none;">
+        <h1>Rental</h1>
+        <p>This is the rental page. Here you can find information about our rental service.</p>
+    </div>
+
+    <!-- <div id="suggestion" class="content" style="display:none;">
+        <h1>Suggestion</h1>
+        <p>Click the button below to get car suggestions based on your preferences.</p>
+        <b><a href="http://localhost:8501" target="_blank" style="color: blue; text-decoration: none;">Go to Car Suggestion System</a></b>
+    </div> -->
+
+    <div id="prediction" class="content" style="display:none;">
+        <h1>Prediction</h1>
+        <p>This is the prediction page. Here you can get car price predictions.</p>
+    </div>
+
+    <script>
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.content').forEach(section => {
+                    section.style.display = 'none';
+                });
+                document.querySelector(link.getAttribute('href')).style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
